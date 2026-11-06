@@ -2,7 +2,10 @@
  * Design system C.E.J.C.C. — jetons et styles de base.
  * Référence : docs/direction-artistique.md. Toute valeur visuelle du projet vient d'ici.
  */
-@import 'tailwindcss';
+/* On ne scanne que le code de l'application : les skills et la doc ne doivent pas ajouter de classes. */
+@import 'tailwindcss' source(none);
+@source '../js';
+@source '../views';
 
 /* Le thème est porté par <html data-theme="clair|sombre"> (voir resources/views/app.blade.php). */
 @custom-variant dark (&:where([data-theme='sombre'], [data-theme='sombre'] *));
