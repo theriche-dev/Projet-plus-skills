@@ -1,0 +1,3 @@
+# Impeccable: platform binaries are fetched and checksum-verified by the launcher
+.claude/skills/impeccable/scripts/bin/
+.agents/skills/impeccable/scripts/bin/
