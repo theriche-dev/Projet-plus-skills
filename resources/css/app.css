@@ -1,0 +1,416 @@
+/*
+ * Design system C.E.J.C.C. — jetons et styles de base.
+ * Référence : docs/direction-artistique.md. Toute valeur visuelle du projet vient d'ici.
+ */
+@import 'tailwindcss';
+
+/* Le thème est porté par <html data-theme="clair|sombre"> (voir resources/views/app.blade.php). */
+@custom-variant dark (&:where([data-theme='sombre'], [data-theme='sombre'] *));
+
+@font-face {
+    font-family: 'Oswald Capitales';
+    /* Fichier réduit aux capitales, accents français, chiffres et ponctuation (5,7 Ko). */
+    src: url('/fonts/oswald-700-capitales.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    unicode-range: U+0020-0060, U+007B-007E, U+00A0, U+00AB, U+00B0, U+00BB, U+00C0-00DC, U+0152,
+        U+0178, U+2013-2014, U+2018-201E, U+2026, U+2039-203A, U+20AC, U+2192;
+}
+
+/* ------------------------------------------------------------------ */
+/* Valeurs par thème                                                   */
+/* ------------------------------------------------------------------ */
+
+:root {
+    --fond: #ffffff;
+    --surface: #ffffff;
+    --surface-2: #f5f3ef;
+    --bordure: #e4e1da;
+    --bordure-forte: #8a877f;
+    --encre: #0e1a33;
+    --encre-douce: #6b6558;
+    --action: #1f5bb5;
+    --action-survol: #174a96;
+    --sur-action: #ffffff;
+    --or: #c9a23a;
+    --or-texte: #8a6a12;
+    --succes: #1e6b3c;
+    --succes-fond: #e8f3ec;
+    --attente: #8a5300;
+    --attente-fond: #fdf1dc;
+    --danger: #b42318;
+    --danger-fond: #fcebea;
+    --sur-danger: #ffffff;
+    --neutre: #3f4a5e;
+    --neutre-fond: #eef0f4;
+    --voile: rgb(14 26 51 / 0.55);
+    --ombre: rgb(14 26 51 / 0.12);
+    --ombre-forte: rgb(14 26 51 / 0.22);
+    --filigrane: 0.07;
+    color-scheme: light;
+}
+
+:root[data-theme='sombre'] {
+    --fond: #0a1224;
+    --surface: #131d33;
+    --surface-2: #1a2540;
+    --bordure: #26324d;
+    --bordure-forte: #6f7b93;
+    --encre: #eef0f5;
+    --encre-douce: #a9a396;
+    --action: #7fa8eb;
+    --action-survol: #a3c0f0;
+    --sur-action: #0a1224;
+    --or: #c9a23a;
+    --or-texte: #d9b95a;
+    --succes: #7fd0a0;
+    --succes-fond: #13301f;
+    --attente: #f2c46b;
+    --attente-fond: #33270d;
+    --danger: #f59a90;
+    --danger-fond: #3a1513;
+    --sur-danger: #0a1224;
+    --neutre: #c7cedb;
+    --neutre-fond: #1e2940;
+    --voile: rgb(0 0 0 / 0.65);
+    --ombre: rgb(0 0 0 / 0.35);
+    --ombre-forte: rgb(0 0 0 / 0.55);
+    --filigrane: 0.08;
+    color-scheme: dark;
+}
+
+/* Sans JavaScript, on suit quand même le réglage du téléphone. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+        --fond: #0a1224;
+        --surface: #131d33;
+        --surface-2: #1a2540;
+        --bordure: #26324d;
+        --bordure-forte: #6f7b93;
+        --encre: #eef0f5;
+        --encre-douce: #a9a396;
+        --action: #7fa8eb;
+        --action-survol: #a3c0f0;
+        --sur-action: #0a1224;
+        --or-texte: #d9b95a;
+        --succes: #7fd0a0;
+        --succes-fond: #13301f;
+        --attente: #f2c46b;
+        --attente-fond: #33270d;
+        --danger: #f59a90;
+        --danger-fond: #3a1513;
+        --sur-danger: #0a1224;
+        --neutre: #c7cedb;
+        --neutre-fond: #1e2940;
+        --voile: rgb(0 0 0 / 0.65);
+        --ombre: rgb(0 0 0 / 0.35);
+        --ombre-forte: rgb(0 0 0 / 0.55);
+        color-scheme: dark;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Jetons Tailwind                                                     */
+/* ------------------------------------------------------------------ */
+
+@theme inline {
+    /* On repart de zéro : seules les couleurs de la direction artistique existent. */
+    --color-*: initial;
+    --color-fond: var(--fond);
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-bordure: var(--bordure);
+    --color-bordure-forte: var(--bordure-forte);
+    --color-encre: var(--encre);
+    --color-encre-douce: var(--encre-douce);
+    --color-action: var(--action);
+    --color-action-survol: var(--action-survol);
+    --color-sur-action: var(--sur-action);
+    --color-or: var(--or);
+    --color-or-texte: var(--or-texte);
+    --color-succes: var(--succes);
+    --color-succes-fond: var(--succes-fond);
+    --color-attente: var(--attente);
+    --color-attente-fond: var(--attente-fond);
+    --color-danger: var(--danger);
+    --color-danger-fond: var(--danger-fond);
+    --color-sur-danger: var(--sur-danger);
+    --color-neutre: var(--neutre);
+    --color-neutre-fond: var(--neutre-fond);
+    --color-voile: var(--voile);
+
+    /* Couleurs de marque fixes, identiques dans les deux thèmes (bandeaux, icône). */
+    --color-marque-encre: #0e1a33;
+    --color-marque-blanc: #ffffff;
+    --color-marque-or: #c9a23a;
+
+    --shadow-sm: 0 1px 2px 0 var(--ombre);
+    --shadow-md: 0 4px 12px -2px var(--ombre);
+    --shadow-lg: 0 16px 40px -8px var(--ombre-forte);
+}
+
+@theme {
+    --font-*: initial;
+    --font-titre: 'Oswald Capitales', 'Roboto Condensed', 'Arial Narrow', sans-serif;
+    --font-texte: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial, sans-serif;
+
+    /* Plancher de 16 px : aucun utilitaire plus petit n'existe. */
+    --text-*: initial;
+    --text-sm: 1rem;
+    --text-sm--line-height: 1.5;
+    --text-base: 1.125rem;
+    --text-base--line-height: 1.6;
+    --text-lg: 1.25rem;
+    --text-lg--line-height: 1.5;
+    --text-xl: 1.5rem;
+    --text-xl--line-height: 1.25;
+    --text-2xl: 1.875rem;
+    --text-2xl--line-height: 1.15;
+    --text-3xl: 2.25rem;
+    --text-3xl--line-height: 1.1;
+
+    --spacing: 0.25rem;
+    --spacing-tactile: 2.75rem; /* 44 px : zone tactile minimale */
+    --spacing-bouton: 3rem; /* 48 px : hauteur des boutons standard */
+    --spacing-gouttiere: 1rem; /* 16 px : marge latérale à 360 px */
+
+    --radius-*: initial;
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+
+    --ease-*: initial;
+    --ease-sortie: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-deplacement: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-tiroir: cubic-bezier(0.32, 0.72, 0, 1);
+
+    --animate-pulsation: pulsation 1.6s ease-in-out infinite;
+
+    @keyframes pulsation {
+        0%,
+        100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.45;
+        }
+    }
+}
+
+:root {
+    --duree-pression: 120ms;
+    --duree-rapide: 180ms;
+    --duree-normale: 240ms;
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+    html {
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+        scrollbar-color: var(--bordure-forte) var(--fond);
+    }
+
+    body {
+        background-color: var(--fond);
+        color: var(--encre);
+        font-family: var(--font-texte);
+        font-size: var(--text-base);
+        line-height: var(--text-base--line-height);
+        text-rendering: optimizeLegibility;
+        caret-color: var(--action);
+        accent-color: var(--action);
+    }
+
+    ::selection {
+        background-color: color-mix(in srgb, var(--or) 40%, transparent);
+        color: var(--encre);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: var(--font-titre);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.01em;
+        text-wrap: balance;
+    }
+
+    a {
+        color: var(--action);
+        text-underline-offset: 0.2em;
+        text-decoration-thickness: 1px;
+    }
+
+    :focus-visible {
+        outline: 3px solid var(--action);
+        outline-offset: 2px;
+    }
+
+    /* Les champs ne doivent jamais faire zoomer la page sur Android/iOS : 16 px minimum. */
+    input,
+    select,
+    textarea,
+    button {
+        font: inherit;
+    }
+
+    .chiffres {
+        font-variant-numeric: tabular-nums;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Composants qui demandent du CSS natif (dialog, toasts, filets)      */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+    .modale {
+        position: fixed;
+        inset: auto 0 0 0;
+        margin: 0;
+        width: 100%;
+        max-width: 100%;
+        max-height: min(85dvh, 40rem);
+        padding: 0;
+        border: 0;
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        background: var(--surface);
+        color: var(--encre);
+        box-shadow: var(--shadow-lg);
+        padding-bottom: env(safe-area-inset-bottom);
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity var(--duree-rapide) var(--ease-sortie),
+            transform var(--duree-rapide) var(--ease-sortie),
+            overlay var(--duree-rapide) allow-discrete,
+            display var(--duree-rapide) allow-discrete;
+    }
+
+    .modale[open] {
+        opacity: 1;
+        transform: none;
+        transition-duration: var(--duree-normale);
+        transition-timing-function: var(--ease-tiroir);
+
+        @starting-style {
+            opacity: 0;
+            transform: translateY(24px);
+        }
+    }
+
+    .modale::backdrop {
+        background: var(--voile);
+        opacity: 0;
+        transition:
+            opacity var(--duree-rapide) var(--ease-sortie),
+            overlay var(--duree-rapide) allow-discrete,
+            display var(--duree-rapide) allow-discrete;
+    }
+
+    .modale[open]::backdrop {
+        opacity: 1;
+
+        @starting-style {
+            opacity: 0;
+        }
+    }
+
+    @media (min-width: 40rem) {
+        .modale {
+            inset: 0;
+            margin: auto;
+            width: calc(100% - 2rem);
+            max-width: 30rem;
+            border-radius: var(--radius-lg);
+            transform: translateY(8px) scale(0.98);
+        }
+
+        .modale[open] {
+            @starting-style {
+                transform: translateY(8px) scale(0.98);
+            }
+        }
+    }
+
+    .toast {
+        opacity: 1;
+        transform: none;
+        transition:
+            opacity var(--duree-normale) var(--ease-sortie),
+            transform var(--duree-normale) var(--ease-sortie);
+
+        @starting-style {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+    }
+
+    .toast[data-sortie] {
+        opacity: 0;
+        transform: translateY(40%);
+        transition-duration: var(--duree-rapide);
+    }
+
+    /* Filets dorés fins des bandeaux importants (touche « Royaume »). */
+    .filets-dores {
+        border-block: 1px solid var(--color-marque-or);
+    }
+
+    /* Élément pressable : retour d'appui + transitions de couleur, sans utilitaire transition-* en plus. */
+    .appui {
+        transition:
+            transform var(--duree-pression) var(--ease-sortie),
+            background-color var(--duree-rapide) ease,
+            border-color var(--duree-rapide) ease,
+            color var(--duree-rapide) ease;
+    }
+
+    .appui:active:not(:disabled):not([aria-disabled='true']) {
+        transform: scale(0.97);
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/* Mouvement réduit : plus de déplacement ni d'échelle, fondus gardés.  */
+/* ------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+    .modale,
+    .modale[open],
+    .toast,
+    .toast[data-sortie] {
+        transform: none !important;
+    }
+
+    .modale[open] {
+        @starting-style {
+            transform: none;
+        }
+    }
+
+    .toast {
+        @starting-style {
+            transform: none;
+        }
+    }
+
+    .appui:active:not(:disabled) {
+        transform: none;
+    }
+
+    .animate-pulsation {
+        animation: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}

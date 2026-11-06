@@ -1,0 +1,210 @@
+{
+    "app": {
+        "nom": "C.E.J.C.C.",
+        "nomComplet": "Communauté Épouse de Jésus-Christ au Congo",
+        "devise": "Royaume des Cieux"
+    },
+    "commun": {
+        "chargement": "Chargement…",
+        "fermer": "Fermer",
+        "annuler": "Annuler",
+        "facultatif": "facultatif",
+        "obligatoire": "obligatoire"
+    },
+    "roles": {
+        "visiteur": "Visiteur",
+        "membre": "Membre",
+        "responsable": "Responsable",
+        "intercesseur": "Intercesseur",
+        "chantre": "Chantre",
+        "pasteur": "Pasteur",
+        "communication": "Communication"
+    },
+    "responsables": {
+        "ancien": "Ancien",
+        "diacre": "Diacre",
+        "chefDepartement": "Chef de département"
+    },
+    "statuts": {
+        "enAttente": "En attente",
+        "valide": "Validé",
+        "refuse": "Refusé",
+        "suspendu": "Suspendu",
+        "masque": "Masqué",
+        "aVenir": "À venir",
+        "enDirect": "En direct",
+        "termine": "Terminé"
+    },
+    "toasts": {
+        "regionNom": "Notifications",
+        "fermer": "Fermer la notification"
+    },
+    "theme": {
+        "libelle": "Affichage",
+        "clair": "Clair",
+        "sombre": "Sombre",
+        "systeme": "Auto"
+    },
+    "ds": {
+        "titrePage": "Design system",
+        "intro": "Les briques de l'application : couleurs, textes, espacements et composants. Chaque élément est conçu pour un téléphone de 360 px, lu en plein soleil.",
+        "sommaire": "Aller à une section",
+        "sections": {
+            "couleurs": "Couleurs",
+            "typographie": "Typographie",
+            "espaces": "Espaces, rayons, ombres",
+            "mouvement": "Mouvement",
+            "boutons": "Boutons",
+            "champs": "Champs",
+            "cartes": "Cartes",
+            "roles": "Badges de rôle",
+            "statuts": "Badges de statut",
+            "modales": "Modales",
+            "toasts": "Toasts",
+            "vide": "État vide",
+            "squelette": "Squelette de chargement",
+            "bandeau": "Bandeau et verset"
+        },
+        "couleurs": {
+            "aide": "Contraste mesuré en direct dans le thème affiché. Seuil AA : 4,5 pour le texte, 3 pour les bordures de champ.",
+            "decoration": "décoration seulement",
+            "sur": "sur",
+            "noms": {
+                "fond": "Fond",
+                "surface2": "Surface secondaire",
+                "encre": "Encre",
+                "encreDouce": "Texte secondaire",
+                "action": "Action",
+                "orTexte": "Or (texte)",
+                "or": "Or",
+                "bordureForte": "Bordure de champ",
+                "succes": "Succès",
+                "attente": "En attente",
+                "danger": "Danger",
+                "neutre": "Neutre"
+            },
+            "reussi": "AA",
+            "echec": "Échec"
+        },
+        "typo": {
+            "titre3xl": "Royaume des Cieux",
+            "titre2xl": "Pensée du jour",
+            "titreXl": "Prière du mardi soir",
+            "lg": "Texte de 20 px pour les versets et les chapeaux.",
+            "base": "Texte courant de 18 px, interligne 1,6. C'est la taille de lecture des publications, pensée pour les personnes âgées comme pour les jeunes.",
+            "sm": "Mention de 16 px : la plus petite taille autorisée.",
+            "note": "Titres : Oswald 700 en capitales, un seul fichier de 5,7 Ko. Texte : police du téléphone, rien à télécharger."
+        },
+        "espaces": {
+            "espacements": "Grille de 4 px",
+            "rayons": "Rayons",
+            "ombres": "Ombres",
+            "tactile": "Zone tactile : 44 px minimum",
+            "bouton": "Bouton standard : 48 px",
+            "rayonSm": "4 px · badges",
+            "rayonMd": "8 px · boutons, champs",
+            "rayonLg": "12 px · cartes, modales",
+            "ombreSm": "Carte posée",
+            "ombreMd": "Élément soulevé",
+            "ombreLg": "Modale, toast"
+        },
+        "mouvement": {
+            "aide": "Appuyez sur le bouton : il se resserre en 120 ms. Avec « réduire les animations » activé sur le téléphone, plus rien ne bouge, seuls les fondus restent.",
+            "essayer": "Appuyez pour essayer",
+            "pression": "Appui",
+            "rapide": "Couleurs, sorties",
+            "normale": "Entrée des modales et toasts",
+            "reduit": "Mouvement réduit détecté : déplacements désactivés.",
+            "nonReduit": "Mouvement normal : déplacements courts actifs."
+        },
+        "boutons": {
+            "rejoindre": "Rejoindre la visio",
+            "rappel": "Me le rappeler",
+            "partager": "Partager sur WhatsApp",
+            "voir": "Voir tous les événements",
+            "refuser": "Refuser l'inscription",
+            "envoi": "Envoi en cours",
+            "desactive": "Inscriptions fermées",
+            "petit": "Commenter",
+            "aide": "Hauteur 48 px (44 px pour la petite taille). Toujours un verbe d'action."
+        },
+        "champs": {
+            "nom": "Nom complet",
+            "nomAide": "Tel qu'il apparaîtra à la communauté.",
+            "telephone": "Numéro WhatsApp",
+            "telephoneAide": "Exemple : 06 123 45 67",
+            "telephoneErreur": "Ce numéro est incomplet. Il doit compter 9 chiffres après le 0.",
+            "commentaire": "Votre commentaire",
+            "commentaireAide": "Il sera visible après relecture par la communication.",
+            "departement": "Département",
+            "departementChoisir": "Choisir un département",
+            "departements": {
+                "chorale": "Chorale",
+                "intercession": "Intercession",
+                "accueil": "Accueil",
+                "jeunesse": "Jeunesse"
+            },
+            "fonctions": "Vos fonctions dans l'église",
+            "fonctionsAide": "Plusieurs choix possibles. La communication confirmera.",
+            "desactive": "Champ désactivé"
+        },
+        "cartes": {
+            "penseeTitre": "Pensée du jour",
+            "penseeDate": "Vendredi 6 novembre",
+            "penseeTexte": "« Que la paix de Christ, à laquelle vous avez été appelés pour former un seul corps, règne dans vos cœurs. »",
+            "penseeReference": "Colossiens 3.15",
+            "evenementTitre": "Prière du soir",
+            "evenementQuand": "Mardi 10 novembre · 19 h 00",
+            "evenementOu": "Visio Jitsi · 1 h",
+            "evenementTexte": "Prière d'intercession pour les familles et les malades de la communauté.",
+            "membreNom": "Béatrice Malonga",
+            "membreDepuis": "Inscrite le 4 novembre",
+            "valider": "Valider",
+            "voirFiche": "Voir la fiche",
+            "photo": "Emplacement photo (facultatif)"
+        },
+        "roles": {
+            "aide": "Une personne peut cumuler plusieurs rôles. Pasteur et Communication sont attribués par le back office, jamais choisis à l'inscription."
+        },
+        "statuts": {
+            "aide": "Chaque statut porte un mot et un repère de forme : la couleur seule ne suffit jamais."
+        },
+        "modales": {
+            "aide": "Réservée aux confirmations. Sur mobile, elle monte du bas et se ferme avec le bouton retour.",
+            "ouvrir": "Refuser une inscription",
+            "titre": "Refuser l'inscription de Béatrice Malonga ?",
+            "texte": "Elle recevra un message et pourra s'inscrire à nouveau. Cette action est notée dans le journal d'activité.",
+            "confirmer": "Refuser l'inscription",
+            "refusee": "Inscription refusée. Béatrice Malonga a été prévenue."
+        },
+        "toasts": {
+            "aide": "En bas de l'écran, lus par les lecteurs d'écran, fermés automatiquement après 6 secondes.",
+            "succes": "Afficher un succès",
+            "erreur": "Afficher une erreur",
+            "info": "Afficher une information",
+            "messageSucces": "Rappel enregistré pour mardi à 18 h 45.",
+            "messageErreur": "Pas de connexion. Votre commentaire sera envoyé dès le retour du réseau.",
+            "messageInfo": "Une nouvelle annonce a été publiée."
+        },
+        "vide": {
+            "titre": "Aucune visio prévue",
+            "texte": "Les prières et les cours en visio apparaîtront ici dès que le pasteur les publiera. Vous recevrez une notification.",
+            "action": "Voir nos canaux"
+        },
+        "squelette": {
+            "aide": "Affiché pendant le chargement à la place du contenu, jamais un rond qui tourne au milieu de la page.",
+            "basculer": "Afficher le contenu chargé",
+            "rebasculer": "Revoir le chargement"
+        },
+        "bandeau": {
+            "titre": "Culte de dimanche",
+            "texte": "Dimanche 8 novembre · 9 h 00 · en direct sur YouTube",
+            "verset": "« Je suis le chemin, la vérité et la vie. »",
+            "reference": "Jean 14.6"
+        },
+        "unites": {
+            "px": "{n} px",
+            "ms": "{n} ms"
+        }
+    }
+}
